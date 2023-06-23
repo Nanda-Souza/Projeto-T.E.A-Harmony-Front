@@ -1,20 +1,21 @@
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
-export default function FooterLogin(){
+
+export default function FooterRegister(){
     
     return (
-        <FooterLog>
-   
-        <Link to="/cadastro" style={{ color: '#F3C715'}}>
-            <h1 >Não tem uma conta? Cadastre-se!</h1>
+        <FooterReg>
+
+        <Link to="/" style={{ color: '#F3C715'}}>
+            <h1>Já tem uma conta? Faça login!</h1>
         </Link>
 
-        </FooterLog>
+        </FooterReg>
     )
 }
 
-const FooterLog = styled.div`
+const FooterReg = styled.div`
     display: flex;
     align-items: center;
     margin: 20px 0 20px 0;
@@ -22,5 +23,5 @@ const FooterLog = styled.div`
     font-style: normal;
     font-weight: 400;
     color: #F3C715;
-    
+    text-decoration: underline;
 `

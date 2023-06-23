@@ -4,7 +4,7 @@ export default function Logo(){
     
     return (
         <LogoContainer>
-            <img src="assets/TEAlogo.png" />
+            <img src="assets/TEAlogo.png" alt="logo"/>
 
         </LogoContainer>
     )

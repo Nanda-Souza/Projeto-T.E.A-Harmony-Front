@@ -22,7 +22,7 @@ export default function ScreenLogin(){
             const userData = await signIn(email, password);
             setUserData(userData);
             toast('Login realizado com sucesso!');            
-            //navigate('/dashboard');
+            navigate('/home');
           } catch (err) {
             toast('Não foi possível fazer o login!');            
           }              
@@ -33,8 +33,7 @@ export default function ScreenLogin(){
     <InputLogin>
 
         <InputLista>
-            <input
-                data-test="email-input" 
+            <input                
                 type="email"
                 value={email} 
                 onChange={e => setEmail(e.target.value)}
@@ -43,8 +42,7 @@ export default function ScreenLogin(){
                 disabled={loadingSignIn}                
                 />
 
-            <input
-                data-test="password-input" 
+            <input                
                 type="password" 
                 value={password} 
                 onChange={e => setPassword(e.target.value)}
@@ -62,8 +60,7 @@ export default function ScreenLogin(){
                         color="#ffffff" 
                         />
                     ) : (
-                    <p 
-                        data-test="login-btn" 
+                    <p                          
                         id="button" 
                         className="button-log">Entrar</p>
                 )}
