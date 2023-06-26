@@ -21,7 +21,8 @@ export default function ScreenLogin(){
         try {            
             const userData = await signIn(email, password);
             setUserData(userData);
-            toast('Login realizado com sucesso!');            
+            toast('Login realizado com sucesso!');
+            console.log(userData);
             navigate('/home');
           } catch (err) {
             toast('Não foi possível fazer o login!');            

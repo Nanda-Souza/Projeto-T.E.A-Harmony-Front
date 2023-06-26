@@ -5,6 +5,7 @@ import SignUp from './pages/RegisterPage';
 import { UserProvider } from './contexts/UserContext';
 import useToken from './hooks/useToken';
 import HomePage from './pages/HomePage';
+import PacientPage from './pages/PacientPage'
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
             <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/sign-up" element={<SignUp />} />            
-            <Route path="/home" element={<HomePage />} />        
+            <Route path="/home" element={<HomePage />} /> 
+            <Route path="/pacient" element={<PacientPage />} />         
             </Routes>
           </Router>
         </UserProvider>      

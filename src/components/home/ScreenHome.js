@@ -1,57 +1,111 @@
 import styled from "styled-components";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import UserContext from "../../contexts/UserContext";
+import useUpdateProfile from "../../hooks/api/useUpdateProfile";
+import { toast } from 'react-toastify';
+import { ThreeDots } from  'react-loader-spinner'
 
-export default function ScreenHome(){    
-    const { userData } = useContext(UserContext);
-    const userName = userData.user.name;    
+export default function ScreenHome(){
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState(''); 
+    const [confirmPassword, setConfirmPassword] = useState('');   
+    const [name, setName] = useState("")
+    const [img_url, setImageUrl] = useState("")
+    const { userData, setUserData } = useContext(UserContext);
+    const userName = userData.user.name;
+    const { loadingUpdateProfile, updateProfile } = useUpdateProfile();
+    
+    
+    async function updateṔrofile(e) {
+        e.preventDefault();
+
+        if (password !== confirmPassword) {
+            toast('As senhas devem ser iguais!');
+          } else {
+            try {            
+                const updatedProfile = await updateProfile({name, email, password, img_url});
+                setUserData(updatedProfile);                
+                toast('Dados atualizados com sucesso!');                            
+              } catch (err) {
+                toast('Não foi possível atualizar o perfil!');            
+              }                      
+    }
+}
     
     return (
+<form onSubmit={updateṔrofile}>
     <ProfileList>
-       <UserName> <p>Bem vindo {userName}</p> </UserName>
+       <UserName> <p className="textW">Bem vindo(a) <h1>{userName}</h1></p> </UserName>
 
-        <InputLista>
-       <p>DADOS CADASTRAIS</p>
+        <InputLista className="list">
+       <h2>DADOS CADASTRAIS</h2>
 
             <input                 
                 type="name"
+                value={name}
+                onChange={e => setName(e.target.value)}
                 placeholder="nome"
-                required       
+                required
+                disabled={loadingUpdateProfile}       
                 />
 
             <input                
                 type="email"
+                value={email} 
+                onChange={e => setEmail(e.target.value)}
                 placeholder="email"
-                required        
+                required
+                disabled={loadingUpdateProfile}         
                 />
 
             <input                
                 type="password"
+                value={password} 
+                onChange={e => setPassword(e.target.value)}
                 placeholder="senha" 
                 required 
+                disabled={loadingUpdateProfile}     
                 />
-
+            
+            <input                
+                type="password"
+                value={confirmPassword} 
+                onChange={e => setConfirmPassword(e.target.value)}
+                placeholder="confirmar senha" 
+                required 
+                disabled={loadingUpdateProfile}     
+                />
 
             <input                
                 type="url"
+                value={img_url} 
+                onChange={e => setImageUrl(e.target.value)}
                 placeholder="foto" 
                 required
+                disabled={loadingUpdateProfile}     
                 />
 
 
 
-            <ProfileButton >
-                
+            <ProfileButton isLoading={loadingUpdateProfile}>
+                {loadingUpdateProfile ? (
+                    <ThreeDots 
+                        height="40" 
+                        width="40" 
+                        color="#ffffff" 
+                        />
+                    ) : (
                     <p                          
                         id="button" 
                         className="button-log">Atualizar Cadastro</p>
+                    )}                        
             </ProfileButton>
 
 
         </InputLista>
 
     </ProfileList>
-
+</form>
     )
 }
 
@@ -65,14 +119,14 @@ const ProfileList = styled.ul`
         border-radius: 5px;  
         margin-bottom: 5px;
         outline: none;
-        font-family: 'Lexend Deca';
+        font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;  
         font-size: 20px;
         color: #7CD0CB;
         background-color: rgba(124,208,203,0.2);  
         ::placeholder {
-            font-family: 'Lexend Deca';
+            font-family: 'Roboto';
             font-style: normal;
             font-weight: 400;
             padding-left:15px;
@@ -92,20 +146,30 @@ padding: 15px;
 display: flex;
 flex-direction: column;
 align-items: center;
-p{
+h2{
     margin-bottom: 15px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    color: #7CD0CB;
 }
+@media (max-width: 600px) {
+    .list{
+      height:70vh;
+      margin-top: 20%;
+    }
 
 `
 
 const ProfileButton = styled.button` 
-        width: 310px;
+        width: 450px;
         height: 45px;
-        background-color: #F3C715;
-        border: 10px solid #F3C715;
+        background-color: #7CD0CB;
+        border: 10px solid #7CD0CB;
         border-radius: 5px;  
         margin-bottom: 50px;  
-        font-family: 'Lexend Deca';
+        font-family: 'Roboto';
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
@@ -118,8 +182,23 @@ const ProfileButton = styled.button`
     const UserName = styled.div`
     margin-left:95px;
     margin-top: 100px; 
-    font-family: 'Lexend Deca';
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    h1{
+        color:#F3C715;
+        margin-left: 5px;
+    }
+    .textW{
+        display: flex;
+        flex-direction: row;
+        font-family: 'Roboto';
         font-style: normal;
-        font-weight: 400;
+        font-weight: 700;
+        font-size: 22px;
+        color: #7CD0CB;
+    }
+        
     `
         

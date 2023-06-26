@@ -9,8 +9,8 @@ export default function Header(){
     
     return (
         <HeaderGeneral >
-            <img src="assets/TEAlogo.png" alt="" />
-            <img src={imgUrl} alt="" />
+            <img className= "logo" src="assets/TEAlogo.png" alt="" />
+            <img className= "imgUser" src={imgUrl} alt="" />
 
         </HeaderGeneral>
     )
@@ -24,9 +24,6 @@ const HeaderGeneral = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    font-family: 'Playball';
-    font-weight: 400;
-    font-size: 40px;
     color: #FFFFFF;
     padding: 10px;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -36,8 +33,16 @@ const HeaderGeneral = styled.div`
         align-items:center;
         margin-left: 20px;
     }
-    img {
+    .logo {
         width: 120px;
         height: 55px;
+    }
+    .imgUser{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 2px solid #F3C715;
+        margin-right: 16px;
+        margin-top: 2px;
     }
   `
