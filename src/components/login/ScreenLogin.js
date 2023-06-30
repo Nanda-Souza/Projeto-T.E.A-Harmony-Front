@@ -13,7 +13,7 @@ export default function ScreenLogin(){
     const [password, setPassword] = useState('');    
     const { loadingSignIn, signIn } = useSignIn();
     const { setUserData } = useContext(UserContext);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
    
     async function sendLogin(e) {
         e.preventDefault();

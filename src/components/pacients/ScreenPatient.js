@@ -122,7 +122,7 @@ export default function ScreenPatient(){
                     ) : (
                     <p                          
                         id="button" 
-                        className="button-log">Cadastrar Patiente</p>
+                        className="button-log">Cadastrar Paciente</p>
                     )}
             </PatientButton>
 

@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import LandingPage from './pages/LandingPage';
 import SignUp from './pages/RegisterPage';
 import { UserProvider } from './contexts/UserContext';
+import { OptionProvider } from './contexts/OptionContext';
 import useToken from './hooks/useToken';
 import HomePage from './pages/HomePage';
 import PacientPage from './pages/PatientPage'
@@ -13,15 +14,17 @@ export default function App() {
     <>
       <ToastContainer />
         <UserProvider>
-          <Router>
-            <Routes>
-            <Route path="/" element={<LandingPage />} />
-            <Route path="/sign-up" element={<SignUp />} />            
-            <Route path="/home" element={<HomePage />} /> 
-            <Route path="/patient" element={<PacientPage />} />         
-            <Route path="/team" element={<TeamPage />} />  
-            </Routes>
-          </Router>
+          <OptionProvider>
+            <Router>
+              <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/sign-up" element={<SignUp />} />            
+              <Route path="/home" element={<HomePage />} /> 
+              <Route path="/patient" element={<PacientPage />} />         
+              <Route path="/team" element={<TeamPage />} />  
+              </Routes>
+            </Router>
+          </OptionProvider>
         </UserProvider>      
     </>
   );
