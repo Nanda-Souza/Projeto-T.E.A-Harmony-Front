@@ -4,58 +4,90 @@ import UserContext from "../../contexts/UserContext";
 import { toast } from 'react-toastify';
 import { ThreeDots } from  'react-loader-spinner'
 
-export default function ScreenPacient(){    
+export default function ScreenTeam(){    
     const { userData } = useContext(UserContext);
     const userName = userData.user.name;    
     
     return (
-    <PacientList>
+    <TeamList>
        <UserName> <p className="textW">Bem vindo(a) <h1>{userName}</h1></p> </UserName>
 
         <InputLista>
-       <h2>CADASTRAR NOVO PACIENTE</h2>
+       <h2>CADASTRAR NOVA EQUIPE MULTIDISCIPLINHAR</h2>
 
             <input                 
-                type="name"
-                placeholder="nome"
+                type="text"
+                placeholder="Paciente"
                 required       
                 />
 
-            <input                
-                placeholder="idade"
-                required        
+            <input                 
+                type="text"
+                placeholder="Profissional 1"
+                required       
                 />
 
-            <input                
-                placeholder="data do diagnóstico" 
-                required 
+            <input                 
+                type="text"
+                placeholder="Profissional 2"
+                required       
+                />
+
+            <input                 
+                type="text"
+                placeholder="Profissional 3"
+                required       
+                />
+
+            <input                 
+                type="text"
+                placeholder="Profissional 4"
+                required       
+                />
+
+            <input                 
+                type="text"
+                placeholder="Profissional 5"
+                required       
                 />
 
 
-            <input                
-                placeholder="neurologista" 
-                required
+            <input                 
+                type="text"
+                placeholder="Profissional 6"
+                required       
+                />
+
+            <input                 
+                type="text"
+                placeholder="Profissional 7"
+                required       
+                />
+
+            <input                 
+                type="text"
+                placeholder="Profissional 8"
+                required       
                 />
 
 
-
-            <PacientButton >                
+            <TeamButton >                
                     <p                          
                         id="button" 
-                        className="button-log">Cadastrar Paciente</p>
-            </PacientButton>
+                        className="button-log">Cadastrar Equipe</p>
+            </TeamButton>
 
 
         </InputLista>
 
-    </PacientList>
+    </TeamList>
 
     )
 }
 
 
 
-const PacientList = styled.ul`
+const TeamList = styled.ul`
     input {
         width: 450px;
         height: 45px;
@@ -100,7 +132,7 @@ h2{
 }
 `
 
-const PacientButton = styled.button` 
+const TeamButton = styled.button` 
         width: 450px;
         height: 45px;
         background-color: #7CD0CB;

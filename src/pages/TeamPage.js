@@ -1,12 +1,11 @@
-
 import styled from 'styled-components';
 import Header from '../components/shared/Header';
-import ScreenPacient from '../components/pacients/ScreenPacient';
+import ScreenTeam from '../components/team/ScreenTeam'
 import Menu from '../components/shared/Menu';
 
 
 
-function HomePage() {
+function TeamPage() {
     
 
     return (
@@ -14,14 +13,14 @@ function HomePage() {
         <ScreenContainer>
             <Header />
             <Menu />
-            <ScreenPacient />
+            <ScreenTeam />
             
         </ScreenContainer>
       
     );
   }
   
-  export default HomePage;
+  export default TeamPage;
   
   const ScreenContainer = styled.div`
   background-color: #FFFFFF;

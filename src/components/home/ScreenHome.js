@@ -41,7 +41,7 @@ export default function ScreenHome(){
        <h2>DADOS CADASTRAIS</h2>
 
             <input                 
-                type="name"
+                type="text"
                 value={name}
                 onChange={e => setName(e.target.value)}
                 placeholder="nome"

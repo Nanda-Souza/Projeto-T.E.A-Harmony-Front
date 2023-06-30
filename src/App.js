@@ -5,7 +5,8 @@ import SignUp from './pages/RegisterPage';
 import { UserProvider } from './contexts/UserContext';
 import useToken from './hooks/useToken';
 import HomePage from './pages/HomePage';
-import PacientPage from './pages/PacientPage'
+import PacientPage from './pages/PatientPage'
+import TeamPage from './pages/TeamPage'
 
 export default function App() {
   return (
@@ -17,7 +18,8 @@ export default function App() {
             <Route path="/" element={<LandingPage />} />
             <Route path="/sign-up" element={<SignUp />} />            
             <Route path="/home" element={<HomePage />} /> 
-            <Route path="/pacient" element={<PacientPage />} />         
+            <Route path="/patient" element={<PacientPage />} />         
+            <Route path="/team" element={<TeamPage />} />  
             </Routes>
           </Router>
         </UserProvider>      
