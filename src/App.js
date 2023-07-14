@@ -7,6 +7,7 @@ import { OptionProvider } from './contexts/OptionContext';
 import useToken from './hooks/useToken';
 import HomePage from './pages/HomePage';
 import PacientPage from './pages/PatientPage'
+import TherapistPage from './pages/TherapistPage'
 import TeamPage from './pages/TeamPage'
 
 export default function App() {
@@ -20,7 +21,8 @@ export default function App() {
               <Route path="/" element={<LandingPage />} />
               <Route path="/sign-up" element={<SignUp />} />            
               <Route path="/home" element={<HomePage />} /> 
-              <Route path="/patient" element={<PacientPage />} />         
+              <Route path="/patient" element={<PacientPage />} />  
+              <Route path="/therapist" element={<TherapistPage />} />  
               <Route path="/team" element={<TeamPage />} />  
               </Routes>
             </Router>

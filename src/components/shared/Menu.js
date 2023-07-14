@@ -8,20 +8,31 @@ export default function Menu(){
         home, 
         setHome,
         patient,
+        therapist,
         setPatient,
+        setTherapist,
     } = useContext(OptionContext)
     const navigate = useNavigate();    
 
     const selectHome = () => {
         setHome(true);
         setPatient(false);
+        setTherapist(false);        
         navigate('/home');
     };
     
     const selectPatient = () => {
         setPatient(true);
-        setHome(false);        
+        setHome(false);
+        setTherapist(false);        
         navigate('/patient');
+    };
+
+    const selectTherapist = () => {
+        setTherapist(true);
+        setHome(false);
+        setPatient(false);        
+        navigate('/therapist');
     };
        
     
@@ -34,9 +45,15 @@ export default function Menu(){
                 />
 
             <img 
-                src={patient ? "assets/patientRed.png" : "assets/patient.png"} 
+                src={patient ? "assets/puzzleRed.png" : "assets/puzzle.png"} 
                 alt=""
                 onClick={selectPatient}  
+                />
+
+            <img 
+                src={therapist ? "assets/therapistRed.png" : "assets/therapist.png"} 
+                alt=""
+                onClick={selectTherapist}  
                 />
             
             <img src="assets/team.png" alt="" />
